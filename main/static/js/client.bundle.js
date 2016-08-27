@@ -46,12 +46,12 @@
 
 	'use strict';
 
-	const React = __webpack_require__(1);
-	const ReactDOM = __webpack_require__(34);
+	var React = __webpack_require__(1);
+	var ReactDOM = __webpack_require__(34);
 
-	const TweetList = __webpack_require__(172);
+	var TweetList = __webpack_require__(172);
 
-	let state = appState;
+	var state = appState;
 
 	ReactDOM.render(React.createElement(TweetList, { hashtag: state.hashtag, tweets: state.tweets }), document.getElementById('app'));
 
@@ -21422,93 +21422,122 @@
 	// NPM Dependencies
 	// --------------------------------------------------------
 
-	const React = __webpack_require__(173);
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(173);
 
 	// Components
 	// --------------------------------------------------------
 
-	const TweetListItem = __webpack_require__(205);
+	var TweetListItem = __webpack_require__(205);
 
 	// --------------------------------------------------------
 
-	class TweetList extends React.Component {
+	var TweetList = function (_React$Component) {
+	    _inherits(TweetList, _React$Component);
 
-	    constructor(props) {
-
-	        super(props);
+	    function TweetList(props) {
+	        _classCallCheck(this, TweetList);
 
 	        // initial component state
 
-	        this.state = {
+	        var _this = _possibleConstructorReturn(this, (TweetList.__proto__ || Object.getPrototypeOf(TweetList)).call(this, props));
+
+	        _this.state = {
 	            tweets: props.tweets,
 	            counter: 10
 	        };
+
+	        return _this;
 	    }
 
-	    componentDidMount() {
+	    _createClass(TweetList, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
 
-	        // trigger countdown at specified interval
+	            // trigger countdown at specified interval
 
-	        setInterval(this.countdown.bind(this), 1000);
-	    }
-
-	    countdown() {
-
-	        // countdown called every second
-
-	        if (this.state.counter === 0) {
-
-	            // if counter has reached 0 then fetch new tweets and reset counter
-
-	            this.fetchNewTweets();
-
-	            this.setState({
-	                counter: 10
-	            });
-	        } else {
-
-	            // decrement counter
-
-	            this.setState({
-	                counter: --this.state.counter
-	            });
+	            setInterval(this.countdown.bind(this), 1000);
 	        }
-	    }
+	    }, {
+	        key: 'countdown',
+	        value: function countdown() {
 
-	    fetchNewTweets() {
+	            // countdown called every second
 
-	        // fetch new tweets using fetch API (only available in latest browsers - see http://caniuse.com/#feat=fetch)
+	            if (this.state.counter === 0) {
 
-	        fetch('/tweets').then(response => response.json()).then(tweets => this.setState({ tweets: tweets }));
-	    }
+	                // if counter has reached 0 then fetch new tweets and reset counter
 
-	    render() {
+	                this.fetchNewTweets();
 
-	        return React.createElement(
-	            'section',
-	            { className: 'tweets' },
-	            React.createElement(
-	                'h2',
-	                { className: 'tweets__header' },
-	                'Latest tweets for #',
-	                this.props.hashtag
-	            ),
-	            React.createElement(
-	                'p',
-	                { className: 'tweets__counter' },
-	                'Updating in ',
-	                this.state.counter,
-	                's...'
-	            ),
-	            React.createElement(
-	                'ul',
-	                { className: 'tweets__list' },
-	                this.state.tweets.map((tweet, i) => React.createElement(TweetListItem, { key: tweet.id, tweet: tweet, parity: i % 2 === 0 ? 'even' : 'odd' }))
-	            )
-	        );
-	    }
+	                this.setState({
+	                    counter: 10
+	                });
+	            } else {
 
-	}
+	                // decrement counter
+
+	                this.setState({
+	                    counter: --this.state.counter
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'fetchNewTweets',
+	        value: function fetchNewTweets() {
+	            var _this2 = this;
+
+	            // fetch new tweets using fetch API (only available in latest browsers - see http://caniuse.com/#feat=fetch)
+
+	            if (window && window.fetch) {
+
+	                fetch('/tweets').then(function (response) {
+	                    return response.json();
+	                }).then(function (tweets) {
+	                    return _this2.setState({ tweets: tweets });
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+
+	            return React.createElement(
+	                'section',
+	                { className: 'tweets' },
+	                React.createElement(
+	                    'h2',
+	                    { className: 'tweets__header' },
+	                    'Latest tweets for #',
+	                    this.props.hashtag
+	                ),
+	                React.createElement(
+	                    'p',
+	                    { className: 'tweets__counter' },
+	                    'Updating in ',
+	                    this.state.counter,
+	                    's...'
+	                ),
+	                React.createElement(
+	                    'ul',
+	                    { className: 'tweets__list' },
+	                    this.state.tweets.map(function (tweet, i) {
+	                        return React.createElement(TweetListItem, { key: tweet.id, tweet: tweet, parity: i % 2 === 0 ? 'even' : 'odd' });
+	                    })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TweetList;
+	}(React.Component);
 
 	TweetList.propTypes = {
 
@@ -25541,80 +25570,101 @@
 	// NPM Dependencies
 	// --------------------------------------------------------
 
-	const React = __webpack_require__(173);
-	const moment = __webpack_require__(206);
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(173);
+	var moment = __webpack_require__(206);
 
 	// --------------------------------------------------------
 
-	class TweetListItem extends React.Component {
+	var TweetListItem = function (_React$Component) {
+	    _inherits(TweetListItem, _React$Component);
 
-	    constructor(props) {
-
-	        super(props);
+	    function TweetListItem(props) {
+	        _classCallCheck(this, TweetListItem);
 
 	        // set initial component state
 
-	        this.state = {
+	        var _this = _possibleConstructorReturn(this, (TweetListItem.__proto__ || Object.getPrototypeOf(TweetListItem)).call(this, props));
+
+	        _this.state = {
 	            isLoading: true
 	        };
+
+	        return _this;
 	    }
 
-	    componentDidMount() {
+	    _createClass(TweetListItem, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var _this2 = this;
 
-	        // when the component has loaded remove the loading class after a short timeout
-	        // this enables us to show a css transition on the client
+	            // when the component has loaded remove the loading class after a short timeout
+	            // this enables us to show a css transition on the client
 
-	        setTimeout(() => this.setState({ isLoading: false }), 10);
-	    }
-
-	    shouldComponentUpdate(nextProps, nextState) {
-
-	        if (nextState.isLoading !== this.state.isLoading) {
-
-	            return true;
+	            setTimeout(function () {
+	                return _this2.setState({ isLoading: false });
+	            }, 10);
 	        }
+	    }, {
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate(nextProps, nextState) {
 
-	        return false;
-	    }
+	            if (nextState.isLoading !== this.state.isLoading) {
 
-	    render() {
+	                return true;
+	            }
 
-	        let createdDate = moment(new Date(this.props.tweet.created_at)).format('DD/MM/YYYY H:mm');
-	        let loadingClassName = this.state.isLoading ? ' tweet--loading' : '';
+	            return false;
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
 
-	        return React.createElement(
-	            'li',
-	            { className: `tweet tweet--${ this.props.parity }${ loadingClassName }` },
-	            React.createElement(
-	                'div',
-	                { className: 'tweet__wrapper' },
-	                React.createElement('img', { src: this.props.tweet.user.profile_image_url, alt: `Profile image for ${ this.props.tweet.user.screen_name }`, className: 'tweet__img' }),
+	            var createdDate = moment(new Date(this.props.tweet.created_at)).format('DD/MM/YYYY H:mm');
+	            var loadingClassName = this.state.isLoading ? ' tweet--loading' : '';
+
+	            return React.createElement(
+	                'li',
+	                { className: 'tweet tweet--' + this.props.parity + loadingClassName },
 	                React.createElement(
-	                    'h3',
-	                    { className: 'tweet__meta' },
-	                    'By ',
+	                    'div',
+	                    { className: 'tweet__wrapper' },
+	                    React.createElement('img', { src: this.props.tweet.user.profile_image_url, alt: 'Profile image for ' + this.props.tweet.user.screen_name, className: 'tweet__img' }),
 	                    React.createElement(
-	                        'span',
-	                        { className: 'tweet__name' },
-	                        this.props.tweet.user.screen_name
+	                        'h3',
+	                        { className: 'tweet__meta' },
+	                        'By ',
+	                        React.createElement(
+	                            'span',
+	                            { className: 'tweet__name' },
+	                            this.props.tweet.user.screen_name
+	                        ),
+	                        ' at ',
+	                        React.createElement(
+	                            'span',
+	                            { className: 'tweet__date' },
+	                            createdDate
+	                        )
 	                    ),
-	                    ' at ',
 	                    React.createElement(
-	                        'span',
-	                        { className: 'tweet__date' },
-	                        createdDate
+	                        'p',
+	                        { className: 'tweet__body' },
+	                        this.props.tweet.text
 	                    )
-	                ),
-	                React.createElement(
-	                    'p',
-	                    { className: 'tweet__body' },
-	                    this.props.tweet.text
 	                )
-	            )
-	        );
-	    }
+	            );
+	        }
+	    }]);
 
-	}
+	    return TweetListItem;
+	}(React.Component);
 
 	TweetListItem.propTypes = {
 

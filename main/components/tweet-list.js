@@ -72,9 +72,13 @@ class TweetList extends React.Component {
 
         // fetch new tweets using fetch API (only available in latest browsers - see http://caniuse.com/#feat=fetch)
 
-        fetch('/tweets')
-        .then((response) => response.json())
-        .then((tweets) => this.setState({tweets: tweets}));
+        if(window && window.fetch) {
+
+            fetch('/tweets')
+            .then((response) => response.json())
+            .then((tweets) => this.setState({tweets: tweets}));
+
+        }
 
     }
 
