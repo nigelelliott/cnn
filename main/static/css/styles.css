@@ -1,0 +1,176 @@
+/**
+ *  CNN Developer Challenge styles
+ *  Author: Nigel Elliott
+ */
+
+/* Global Styles */
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #333;
+}
+
+.content {
+    max-width: 800px;
+    margin: 20px auto;
+}
+.row {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+}
+.title {
+    color: #000;
+    font-weight: bold;
+}
+.me {
+    margin: 0 20px 20px;
+}
+
+/* Components */
+
+.tweets {
+    margin: 0 20px;
+}
+.tweets__header {
+    background: #1da1f2;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    padding: 10px 20px 5px 20px;
+    border-radius: 5px 5px 0 0;
+}
+.tweets__counter {
+    background: #1da1f2;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0 20px 10px 20px;
+}
+.tweets__list {
+    margin: 0;
+    padding: 0;
+}
+
+.tweet {
+    list-style: none;
+    display: block;
+    padding: 20px;
+}
+.tweet--odd {
+    background: #dde1e2;
+}
+.tweet--even {
+    background: #eee;
+}
+.tweet__wrapper {
+    opacity: 1;
+    transition: opacity .3s ease-in 0s;
+   -moz-transition: opacity .3s ease-in 0s;
+   -webkit-transition: opacity .3s ease-in 0s;
+}
+.tweet--loading .tweet__wrapper {
+    opacity: 0;
+}
+.tweet__img {
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    border: 2px solid #fff;
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+
+    margin: 0 10px 0 0;
+    float: left;
+
+    transition: margin-left .3s ease-in 0s, margin-right .3s ease-in 0s;
+   -moz-transition: margin-left .3s ease-in 0s, margin-right .3s ease-in 0s;
+   -webkit-transition: margin-left .3s ease-in 0s, margin-right .3s ease-in 0s;
+}
+.tweet--loading .tweet__img {
+    opacity: 0;
+    margin-left: -20px;
+}
+.tweet__meta {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 5px 0;
+    color: #555;
+}
+.tweet__name,
+.tweet__date {
+    color: #000;
+    font-weight: bold;
+    padding: 0 5px;
+}
+.tweet__body {
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    position: relative;
+    margin: 20px 0 0 0;
+
+    clear: both;
+}
+.tweet__body:before {
+    content: ' ';
+    display: block;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    background: #fff;
+    position: absolute;
+    left: 8px;
+    top: -5px;
+}
+.tweet__body a {
+    color: #1da1f2;
+}
+
+@media only screen and (min-width: 480px) {
+
+    .tweet__img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        border: 3px solid #fff;
+
+        float: left;
+        margin: 30px 20px 0 0;
+    }
+    .tweet__meta {
+        font-size: 14px;
+    }
+    .tweet__body {
+        font-size: 14px;
+        margin-left: 70px;
+        clear: none;
+    }
+    .tweet__body:before {
+        left: -5px;
+        top: 10px;
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+
+    .tweet--even .tweet__img {
+        float: right;
+        margin: 30px 0 0 20px;
+    }
+    .tweet--loading .tweet__img {
+        margin-right: -20px;
+    }
+    .tweet--even .tweet__body {
+        margin-left: 0;
+        margin-right: 70px;
+    }
+    .tweet--even .tweet__body:before {
+        left: initial;
+        right: -5px;
+    }
+
+}
