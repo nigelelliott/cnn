@@ -1,7 +1,7 @@
 {
   "name": "cnn-dev-challenge",
   "version": "1.0.0",
-  "description": "Small demo app that consumes a twitter feed",
+  "description": "Small universal React app that consumes a twitter feed and polls for updates",
   "main": "main/index.js",
   "scripts": {
     "start": "NODE_PATH=. NODE_ENV=development PORT=3333 node main/index.js",
@@ -11,21 +11,21 @@
   "author": "Nigel Elliott",
   "license": "ISC",
   "dependencies": {
-    "babel-register": "^6.14.0",
-    "express": "^4.14.0",
-    "moment": "^2.14.1",
-    "path": "^0.12.7",
-    "react": "^15.3.1",
-    "react-dom": "^15.3.1",
-    "twitter": "^1.4.0"
+    "babel-register": "6.14.0",
+    "express": "4.14.0",
+    "moment": "2.14.1",
+    "path": "0.12.7",
+    "react": "15.3.1",
+    "react-dom": "15.3.1",
+    "twitter": "1.4.0"
   },
   "devDependencies": {
-    "babel-core": "^6.14.0",
-    "babel-loader": "^6.2.5",
-    "babel-preset-react": "^6.11.1",
-    "chai": "^3.5.0",
-    "cheerio": "^0.22.0",
-    "mocha": "^3.0.2",
-    "webpack": "^1.13.2"
+    "babel-core": "6.14.0",
+    "babel-loader": "6.2.5",
+    "babel-preset-react": "6.11.1",
+    "chai": "3.5.0",
+    "cheerio": "0.22.0",
+    "mocha": "3.0.2",
+    "webpack": "1.13.2"
   }
 }

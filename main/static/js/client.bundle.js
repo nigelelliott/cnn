@@ -21437,6 +21437,8 @@
 
 	        super(props);
 
+	        // initial component state
+
 	        this.state = {
 	            tweets: props.tweets,
 	            counter: 10
@@ -21445,12 +21447,18 @@
 
 	    componentDidMount() {
 
+	        // trigger countdown at specified interval
+
 	        setInterval(this.countdown.bind(this), 1000);
 	    }
 
 	    countdown() {
 
+	        // countdown called every second
+
 	        if (this.state.counter === 0) {
+
+	            // if counter has reached 0 then fetch new tweets and reset counter
 
 	            this.fetchNewTweets();
 
@@ -21459,6 +21467,8 @@
 	            });
 	        } else {
 
+	            // decrement counter
+
 	            this.setState({
 	                counter: --this.state.counter
 	            });
@@ -21466,6 +21476,8 @@
 	    }
 
 	    fetchNewTweets() {
+
+	        // fetch new tweets using fetch API (only available in latest browsers - see http://caniuse.com/#feat=fetch)
 
 	        fetch('/tweets').then(response => response.json()).then(tweets => this.setState({ tweets: tweets }));
 	    }
