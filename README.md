@@ -16,7 +16,7 @@ NOTE: you may need to update the hashtag (in `main/config.json`) to something wi
 ## Assumptions
 
 - Liberal use of ES6 syntax is ok... (requires Node v4 or higher to run)
-- Relies on some modern browser features e.g. Fetch API.  We could use a polyfill for other browsers in a real-world scenario.
+- Relies on some modern browser features e.g. Fetch API.  Best to run in the latest version of Chrome. We could use a polyfill for other browsers in a real-world scenario.
 - It would probably be better to use socket.io and the Twitter streaming API if we had more time.
 - The app is structured in such a way that it would be easy to expand in the future.  Some of the folder structure may be overkill for such a small app.
 - The test directory is just a brief overview of how I would setup and unit test the components.  To more thoroughly test we would probably have unit tests for the server code and also some integration tests.
